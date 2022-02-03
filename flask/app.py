@@ -57,37 +57,37 @@ def get_employee():
     result = empleados_schema.dump(all_employees)
     return jsonify(result)
     
-@app.route('/employee/<id>',methods=['Get']) 
-def get_task(id):
-    emp = Empleados.query.get(id)
-    return empleados_schema.jsonify(emp)
+# @app.route('/employee/<id>',methods=['Get']) 
+# def get_task(id):
+#     emp = Empleados.query.get(id)
+#     return empleados_schema.jsonify(emp)
 
-@app.route('/modFlask/<id>',methods=['Put'])
-def upd_employees(id):
-    employee = Empleados.query.get(id)
+# @app.route('/modFlask/<id>',methods=['Put'])
+# def upd_employees(id):
+#     employee = Empleados.query.get(id)
 
-    Nombre = request.json['Nombre']
-    Apellido_Paterno = request.json['Apellido_Paterno']
-    Apellido_Materno = request.json['Apellido_Materno']
-    Correo = request.json['Correo']
-    Telefono = request.json['Telefono']
+#     Nombre = request.json['Nombre']
+#     Apellido_Paterno = request.json['Apellido_Paterno']
+#     Apellido_Materno = request.json['Apellido_Materno']
+#     Correo = request.json['Correo']
+#     Telefono = request.json['Telefono']
 
-    employee.Nombre = Nombre
-    employee.Apellido_Paterno = Apellido_Paterno
-    employee.Apellido_Materno = Apellido_Materno
-    employee.Correo = Correo
-    employee.Telefono = Telefono
+#     employee.Nombre = Nombre
+#     employee.Apellido_Paterno = Apellido_Paterno
+#     employee.Apellido_Materno = Apellido_Materno
+#     employee.Correo = Correo
+#     employee.Telefono = Telefono
 
-    db.session.commit()
+#     db.session.commit()
 
-    return empleado_schema.jsonify(employee)
+#     return empleado_schema.jsonify(employee)
 
-@app.route('/deleteFlask/<id>',methods=['Delete'])
-def delete_task(id):
-    employee = Empleados.query.get(id)
-    db.session.delete(employee)
-    db.session.commit()
-    return empleado_schema.jsonify(employee)
+# @app.route('/deleteFlask/<id>',methods=['Delete'])
+# def delete_task(id):
+#     employee = Empleados.query.get(id)
+#     db.session.delete(employee)
+#     db.session.commit()
+#     return empleado_schema.jsonify(employee)
 
 if __name__ == "__main__":
     app.run(debug=True)
